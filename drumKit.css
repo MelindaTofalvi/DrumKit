@@ -1,0 +1,50 @@
+body{
+  background: url(backrground.jpg);
+  background-size: cover;
+  font-family:'Cutive Mono', monospace;
+}
+
+.container{
+  margin: 20% 15%;
+}
+
+p{
+  margin: 0;
+}
+
+.block{
+  height: 80px;
+  width: 80px;
+  float: left;
+  padding-top: 20px;
+  margin: 10px;
+  border: 3px solid black;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-size: 3.0em;
+  line-height: 15px;
+  transition: all 0.07s;
+}
+
+.selected{
+  border: 3px solid #ffc600;
+  /*animation-name: flash;
+   animation-duration: 0.5s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-play-state: running;*/
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #ffc600;
+}
+
+@keyframes flash {
+  50% { opacity: 0; }
+}
+
+span{
+  color: #ffc600;
+  font-family: Arial;
+  font-size: 20%;
+}
