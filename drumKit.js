@@ -1,146 +1,21 @@
-var a = document.querySelector("#lettera");
-var s = document.querySelector("#s");
-var d = document.querySelector("#d");
-var f = document.querySelector("#f");
-var g = document.querySelector("#g");
-var h = document.querySelector("#h");
-var j = document.querySelector("#j");
-var k = document.querySelector("#k");
-var l = document.querySelector("#l");
+var keycodes = ["65", "83", "68", "70", "71", "72", "74", "75", "76"];
+var sounds = ["barking.mp3", "horn.mp3", "ghost.mp3", "rocket.mp3", "laugh.mp3", "elephant.mp3", "alert.mp3", "calculator.mp3", "laser.mp3"];
+var select;
 
-var key = true;
-
-//letter "a"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "65"){
-        a.classList.add("selected");
-        var audio = new Audio("barking.mp3");
+$(document).on("keydown", function(e){
+  var code = e.keyCode;
+  for (var i = 0; i < keycodes.length; i++) {
+    if(code == keycodes[i]){
+      for (var j = 0; j < sounds.length; j++) {
+        var audio = new Audio(sounds[i]);
         audio.play();
+        select = $("p").parent()[i];
+        $(select).addClass("selected");
       }
+    }
+ }
 });
 
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "65"){
-      a.classList.remove("selected");
-    }
-  });
-
-// letter "s"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "83"){
-    s.classList.add("selected");
-    var audio = new Audio("horn.mp3");
-    audio.play();
-  }
+$(document).on("keyup", function(e){
+  $(select).removeClass("selected");
 });
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "83"){
-      s.classList.remove("selected");
-    }
-  });
-
-// letter "d"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "68"){
-    d.classList.add("selected");
-    var audio = new Audio("ghost.mp3");
-    audio.play();
-  }
-});
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "68"){
-      d.classList.remove("selected");
-    }
-  });
-
-// letter "f"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "70"){
-    f.classList.add("selected");
-    var audio = new Audio("rocket.mp3");
-    audio.play();
-  }
-});
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "70"){
-      f.classList.remove("selected");
-    }
-  });
-
-// letter "g"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "71"){
-    g.classList.add("selected");
-    var audio = new Audio("laugh.mp3");
-    audio.play();
-  }
-});
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "71"){
-      g.classList.remove("selected");
-    }
-  });
-
-// letter "h"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "72"){
-    h.classList.add("selected");
-    var audio = new Audio("elephant.mp3");
-    audio.play();
-  }
-});
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "72"){
-      h.classList.remove("selected");
-    }
-  });
-
-// letter "j"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "74"){
-    j.classList.add("selected");
-    var audio = new Audio("alert.mp3");
-    audio.play();
-  }
-});
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "74"){
-      j.classList.remove("selected");
-    }
-  });
-
-// letter "k"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "75"){
-    k.classList.add("selected");
-    var audio = new Audio("calculator.mp3");
-    audio.play();
-  }
-});
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "75"){
-      k.classList.remove("selected");
-    }
-  });
-
-// letter "l"
-document.addEventListener("keydown", function (event){
-  if(event.keyCode == "76"){
-    l.classList.add("selected");
-    var audio = new Audio("laser.mp3");
-    audio.play();
-  }
-});
-
-document.addEventListener("keyup", function(event){
-    if(event.keyCode == "76"){
-      l.classList.remove("selected");
-    }
-  });
